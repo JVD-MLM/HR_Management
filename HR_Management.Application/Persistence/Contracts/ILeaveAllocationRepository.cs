@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HR_Management.Application.DTOs.LeaveAllocation;
 using HR_Management.Domain;
 
 namespace HR_Management.Application.Persistence.Contracts
 {
     public interface ILeaveAllocationRepository : IGenericRepository<LeaveAllocation>
     {
+        public Task<List<LeaveAllocation>> GetLeaveAllocationListWithDetails();
+        public Task<LeaveAllocation> GetLeaveAllocationWithDetails(int id);
     }
 }
