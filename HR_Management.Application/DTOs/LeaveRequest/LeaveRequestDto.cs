@@ -9,7 +9,7 @@ namespace HR_Management.Application.DTOs.LeaveRequest
         public DateTime EndDate { get; set; }
         public int LeaveTypeId { get; set; }
         public DateTime RequestedDate { get; set; }
-        public DateTime DateActioned { get; set; }
+        public DateTime? DateActioned { get; set; }
         public string RequestComment { get; set; }
         public bool? Approved { get; set; }
         public bool Canceled { get; set; }
