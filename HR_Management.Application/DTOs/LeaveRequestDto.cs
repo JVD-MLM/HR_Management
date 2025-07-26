@@ -1,0 +1,21 @@
+﻿using HR_Management.Application.DTOs.Common;
+
+namespace HR_Management.Application.DTOs
+{
+    public class LeaveRequestDto : BaseDto
+    {
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public int LeaveTypeId { get; set; }
+        public DateTime RequestedDate { get; set; }
+        public DateTime DateActioned { get; set; }
+        public string RequestComment { get; set; }
+        public bool? Approved { get; set; }
+        public bool Canceled { get; set; }
+
+
+
+
+        public LeaveTypeDto LeaveType { get; set; }
+    }
+}
