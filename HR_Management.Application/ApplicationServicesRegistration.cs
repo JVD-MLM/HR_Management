@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using HR_Management.Application.Profiles;
@@ -12,7 +13,7 @@ namespace HR_Management.Application
     {
         public static void ConfigureApplicationServices(this IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(MappingProfile));
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
         }
     }
 }
