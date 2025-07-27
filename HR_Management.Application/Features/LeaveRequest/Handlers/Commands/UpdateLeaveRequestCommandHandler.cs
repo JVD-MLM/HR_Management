@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using HR_Management.Application.Features.LeaveRequest.Requests.Commands;
-using HR_Management.Application.Persistence.Contracts;
+using HR_Management.Application.Contracts.Persistence;
 using MediatR;
 
 namespace HR_Management.Application.Features.LeaveRequest.Handlers.Commands

@@ -1,9 +1,10 @@
-﻿using HR_Management.Application.Persistence.Contracts;
+﻿using HR_Management.Application.Contracts.Persistence;
+using HR_Management.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace HR_Management.Persistence.Repositories
+namespace HR_Management.Persistence
 {
     public static class PersistenceServicesRegistration
     {
