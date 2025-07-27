@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HR_Management.Application.Persistence.Contracts;
+﻿using HR_Management.Application.Persistence.Contracts;
 using Microsoft.EntityFrameworkCore;
 
 namespace HR_Management.Persistence.Repositories
 {
-    public class GenericRepository<T>:IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly MyDbContext _dbContext;
 
