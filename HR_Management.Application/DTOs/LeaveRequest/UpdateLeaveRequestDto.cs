@@ -2,12 +2,12 @@
 
 namespace HR_Management.Application.DTOs.LeaveRequest
 {
-    public class CreateLeaveRequestDto : BaseDto
+    public class UpdateLeaveRequestDto : BaseDto
     {
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public int LeaveTypeId { get; set; }
-        public DateTime RequestedDate { get; set; }
         public string RequestComment { get; set; }
+        public bool Canceled { get; set; }
     }
 }
