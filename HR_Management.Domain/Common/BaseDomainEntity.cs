@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HR_Management.Domain.Common
+﻿namespace HR_Management.Domain.Common
 {
     public abstract class BaseDomainEntity
     {
