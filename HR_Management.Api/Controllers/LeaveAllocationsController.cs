@@ -47,6 +47,7 @@ namespace HR_Management.Api.Controllers
         public async Task<IActionResult> Put(int id, [FromBody] LeaveAllocationDto leaveAllocationDto)
         {
             var command = new UpdateLeaveAllocationCommand() { LeaveAllocationDto = leaveAllocationDto };
+            command.LeaveAllocationDto.Id = id;
             var response = await _mediator.Send(command);
             return NoContent();
         }
