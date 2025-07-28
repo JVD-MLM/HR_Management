@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
+using HR_Management.Application.Contracts.Persistence;
 //using HR_Management.Application.Contracts.Infrastructure;
 using HR_Management.Application.Features.LeaveRequest.Requests.Commands;
-using HR_Management.Application.Contracts.Persistence;
-using HR_Management.Application.Models;
+using HR_Management.Application.Models.EmailSender;
 using MediatR;
 
 namespace HR_Management.Application.Features.LeaveRequest.Handlers.Commands
