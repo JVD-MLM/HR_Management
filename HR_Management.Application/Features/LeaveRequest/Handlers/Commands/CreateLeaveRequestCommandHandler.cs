@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using HR_Management.Application.Contracts.Infrastructure;
+//using HR_Management.Application.Contracts.Infrastructure;
 using HR_Management.Application.Features.LeaveRequest.Requests.Commands;
 using HR_Management.Application.Contracts.Persistence;
 using HR_Management.Application.Models;
@@ -11,13 +11,13 @@ namespace HR_Management.Application.Features.LeaveRequest.Handlers.Commands
     {
         private readonly ILeaveRequestRepository _leaveRequestRepository;
         private readonly IMapper _mapper;
-        private readonly IEmailSender _emailSender;
+        //private readonly IEmailSender _emailSender;
 
-        public CreateLeaveRequestCommandHandler(ILeaveRequestRepository leaveRequestRepository, IMapper mapper, IEmailSender emailSender)
+        public CreateLeaveRequestCommandHandler(ILeaveRequestRepository leaveRequestRepository, IMapper mapper /*IEmailSender emailSender*/)
         {
             _leaveRequestRepository = leaveRequestRepository;
             _mapper = mapper;
-            _emailSender = emailSender;
+            //_emailSender = emailSender;
         }
 
         public async Task<int> Handle(CreateLeaveRequestCommand request, CancellationToken cancellationToken)
@@ -31,7 +31,7 @@ namespace HR_Management.Application.Features.LeaveRequest.Handlers.Commands
                 Subject = "test",
                 Body = "test"
             };
-            await _emailSender.SendEmail(email);
+            //await _emailSender.SendEmail(email);
 
             return leaveRequest.Id;
         }
