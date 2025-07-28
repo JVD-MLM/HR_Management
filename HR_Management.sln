@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR_Management.Persistence",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR_Management.Api", "HR_Management.Api\HR_Management.Api.csproj", "{6A2A3B7F-775F-45FA-9349-3981C4841E30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HR_Management.Identity", "HR_Management.Identity\HR_Management.Identity.csproj", "{06142918-A86B-478B-A54E-71C8B4E8F25F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{6A2A3B7F-775F-45FA-9349-3981C4841E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A2A3B7F-775F-45FA-9349-3981C4841E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A2A3B7F-775F-45FA-9349-3981C4841E30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06142918-A86B-478B-A54E-71C8B4E8F25F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06142918-A86B-478B-A54E-71C8B4E8F25F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06142918-A86B-478B-A54E-71C8B4E8F25F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06142918-A86B-478B-A54E-71C8B4E8F25F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +71,7 @@ Global
 		{0F516846-9518-4CE9-8694-42C7FE009989} = {F38A7E31-3F66-4DF7-A196-ED8F56B2FDEB}
 		{743361E6-A8F8-494D-AC53-68CA7B089120} = {F38A7E31-3F66-4DF7-A196-ED8F56B2FDEB}
 		{6A2A3B7F-775F-45FA-9349-3981C4841E30} = {840F27A8-1F84-4CF6-ACCD-F02FCBA4BE8E}
+		{06142918-A86B-478B-A54E-71C8B4E8F25F} = {F38A7E31-3F66-4DF7-A196-ED8F56B2FDEB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8825FDAA-FFC4-4016-9F9A-AD2FB369C43B}
