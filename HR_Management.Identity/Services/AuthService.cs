@@ -64,9 +64,31 @@ namespace HR_Management.Identity.Services
             }
         }
 
-        public Task<LoginResponseModel> Login(LoginRequestModel request)
+        public async Task<LoginResponseModel> Login(LoginRequestModel request)
         {
-            throw new NotImplementedException();
+            var user = await _userManager.FindByEmailAsync(request.Email);
+
+            if (user == null)
+            {
+                throw new Exception();
+            }
+
+            var result = await _signInManager.PasswordSignInAsync(user, request.Password, false, false);
+
+            if (!result.Succeeded)
+            {
+                throw new Exception();
+            }
+
+            var token = await GenerateToken(user);
+
+            return new LoginResponseModel()
+            {
+                Id = user.Id,
+                Email = user.Email,
+                Username = user.UserName,
+                Token = new JwtSecurityTokenHandler().WriteToken(token)
+            };
         }
 
         public async Task<JwtSecurityToken> GenerateToken(ApplicationUser user)
