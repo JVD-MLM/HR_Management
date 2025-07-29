@@ -1,28 +1,27 @@
-﻿using HR_Management.Application.Contracts.Identity;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using HR_Management.Application.Contracts.Identity;
 using HR_Management.Application.Models.Identity.Login;
 using HR_Management.Application.Models.Identity.Register;
 using HR_Management.Identity.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 
 namespace HR_Management.Identity.Services
 {
     public class AuthService : IAuthService
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IOptions<JwtSetting> _options;
+        private readonly IOptions<JwtSetting> _jwtOptions;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
         public AuthService(UserManager<ApplicationUser> userManager, IOptions<JwtSetting> options, SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
-            _options = options;
+            _jwtOptions = options;
             _signInManager = signInManager;
-        }
-
-        public Task<LoginResponseModel> Login(LoginRequestModel request)
-        {
-            throw new NotImplementedException();
         }
 
         public async Task<RegisterResponseModel> Register(RegisterRequestModel request)
@@ -58,12 +57,45 @@ namespace HR_Management.Identity.Services
                 {
                     throw new Exception();
                 }
-
             }
             else
             {
                 throw new Exception();
             }
+        }
+
+        public Task<LoginResponseModel> Login(LoginRequestModel request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<JwtSecurityToken> GenerateToken(ApplicationUser user)
+        {
+            var userClaims = await _userManager.GetClaimsAsync(user);
+            var userRoles = await _userManager.GetRolesAsync(user);
+            var roleClaims = new List<Claim>();
+
+            foreach (var role in userRoles)
+            {
+                roleClaims.Add(new Claim(ClaimTypes.Role, role));
+            }
+
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim("username", user.UserName),
+            }.Union(userClaims).Union(roleClaims);
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.Value.Key));
+            var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var token = new JwtSecurityToken(
+                issuer: _jwtOptions.Value.Issuer,
+                audience: _jwtOptions.Value.Audience,
+                claims: claims,
+                expires: DateTime.UtcNow.AddMinutes(_jwtOptions.Value.Duration),
+                signingCredentials: signingCredentials);
+
+            return token;
         }
     }
 }
